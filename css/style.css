@@ -1,0 +1,13 @@
+.dark {
+    background-color: black;
+}
+
+#title {
+    color: #294c79;
+    font-size: large;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#firstdiv {
+    margin-top: 30px;
+}

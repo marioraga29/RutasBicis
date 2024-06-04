@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rutas Bicis</title>
+  <link href='/css/style.css' rel='stylesheet'>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body class="dark">
+  <div class="container">
+    <form>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 text-center" id="firstdiv">
+          <div class="form-group">
+            <label for="typeOfActivity" id="title">Elija una opción</label>
+            <select class="form-control" id="typeOfActivity">
+              <option>RUTA</option>
+              <option>CICLO</option>
+              <option>CUMPLEAÑOS</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" placeholder="Nombre de la ruta">
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      <hr id="line">
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <div class="form-group">
+            <label for="date" id="title">Fecha</label>
+            <input type="date" class="form-control" id="date" placeholder="Elije una fecha">
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="form-group">
+            <label for="departureTime" id="title">Hora de salida</label>
+            <input type="time" class="form-control" id="departureTime" placeholder="Elije una hora">
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="form-group">
+            <label for="arrivalTime" id="title">Hora de llegada</label>
+            <input type="time" class="form-control" id="arrivalTime" placeholder="Elije una hora">
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="form-group">
+            <label for="departurePlace" id="title">Punto de quedada</label>
+            <input type="text" class="form-control" id="departurePlace" placeholder="Indicar...">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <div class="form-group">
+            <label for="velocidad" id="title">Vel.Media(km/h)</label>
+            <input type="number" class="form-control" id="velocidad" placeholder="Indicar">
+          </div>
+        </div>
+        <div class="col-md-3 text-center">
+          <div class="form-group">
+            <label for="km" id="title">Kilometros</label>
+            <input type="number" class="form-control" id="km" placeholder="Indicar">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
