@@ -91,61 +91,91 @@
   </style>
 </head>
 <body>
-    <div class="form-container">
-        <form id="routeForm">
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required><br><br>
-            <label for="horaSalida">Hora de Salida:</label>
-            <input type="time" id="horaSalida" name="horaSalida" required><br><br>
-            <label for="horaLlegada">Hora de Llegada:</label>
-            <input type="time" id="horaLlegada" name="horaLlegada" required><br><br>
-            <label for="puntoQuedada">Punto de Quedada:</label>
-            <input type="text" id="puntoQuedada" name="puntoQuedada" required><br><br>
-            <label for="descripcionRuta">Descripción de la Ruta:</label>
-            <textarea id="descripcionRuta" name="descripcionRuta" required></textarea><br><br>
-            <label for="nivelRuta">Nivel de Ruta:</label>
-            <select id="nivelRuta" name="nivelRuta" required>
-                <option value="experto">Experto</option>
-                <option value="avanzado">Avanzado</option>
-                <option value="intermedio">Intermedio</option>
-                <option value="principiante">Principiante</option>
-                <option value="paseo">Paseo</option>
-            </select><br><br>
-            <button type="submit">Crear Ruta</button>
-        </form>
-    </div>
+  <div class="container">
+      <div class="form-container">
+          <form id="routeForm">
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" required><br><br>
+              <label for="horaSalida">Hora de Salida:</label>
+              <input type="time" id="horaSalida" name="horaSalida" required><br><br>
+              <label for="horaLlegada">Hora de Llegada:</label>
+              <input type="time" id="horaLlegada" name="horaLlegada" required><br><br>
+              <label for="puntoQuedada">Punto de Quedada:</label>
+              <input type="text" id="puntoQuedada" name="puntoQuedada" required><br><br>
+              <label for="descripcionRuta">Descripción de la Ruta:</label>
+              <textarea id="descripcionRuta" name="descripcionRuta" required></textarea><br><br>
+              <label for="nivelRuta">Nivel de Ruta:</label>
+              <select id="nivelRuta" name="nivelRuta" required>
+                  <option value="experto">Experto</option>
+                  <option value="avanzado">Avanzado</option>
+                  <option value="intermedio">Intermedio</option>
+                  <option value="principiante">Principiante</option>
+                  <option value="paseo">Paseo</option>
+              </select><br><br>
+              <button type="submit">Crear Ruta</button>
+          </form>
+      </div>
 
-    <div class="preview-container">
-        <div class="preview" id="routePreview"></div>
-    </div>
+      <div class="preview-container">
+          <div class="preview" id="routePreview">
+              <h1>Ruta: Parque de la Gravera</h1>
+              <div class="route-details">
+                  <div>
+                      <p><strong>Fecha:</strong> <span id="previewFecha"></span></p>
+                      <p><strong>Hora de Salida:</strong> <span id="previewHoraSalida"></span></p>
+                      <p><strong>Hora de Llegada:</strong> <span id="previewHoraLlegada"></span></p>
+                      <p><strong>Punto de Quedada:</strong> <span id="previewPuntoQuedada"></span></p>
+                  </div>
+                  <div>
+                      <p><strong>Desayuno:</strong> Sí</p>
+                      <p><strong>Refrigerio al Final:</strong> Sí</p>
+                  </div>
+              </div>
+              <p><strong>Descripción de la Ruta:</strong> <span id="previewDescripcionRuta"></span></p>
+              <div class="route-level">
+                  <p><strong>Nivel de Ruta:</strong></p>
+                  <div class="experto"></div>
+                  <div class="avanzado"></div>
+                  <div class="intermedio"></div>
+                  <div class="principiante"></div>
+                  <div class="paseo"></div>
+              </div>
+              <p><strong>A tener en cuenta:</strong> Llevar luces y cámara de repuesto.</p>
+              <p><strong>Teléfono del Organizador:</strong> 365687523</p>
+              <p>Sin casco no se sale. Cada uno es responsable de sí mismo.</p>
+              <p><strong>Enlace Track:</strong> Me apunto a la ruta</p>
+          </div>
+      </div>
+  </div>
 
-    <script>
-        document.getElementById('routeForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Obtener los valores del formulario
-            const fecha = document.getElementById('fecha').value;
-            const horaSalida = document.getElementById('horaSalida').value;
-            const horaLlegada = document.getElementById('horaLlegada').value;
-            const puntoQuedada = document.getElementById('puntoQuedada').value;
-            const descripcionRuta = document.getElementById('descripcionRuta').value;
-            const nivelRuta = document.getElementById('nivelRuta').value;
+  <script>
+    document.getElementById('routeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Obtener los valores del formulario
+        const fecha = document.getElementById('fecha').value;
+        const horaSalida = document.getElementById('horaSalida').value;
+        const horaLlegada = document.getElementById('horaLlegada').value;
+        const puntoQuedada = document.getElementById('puntoQuedada').value;
+        const descripcionRuta = document.getElementById('descripcionRuta').value;
+        const nivelRuta = document.getElementById('nivelRuta').value;
 
-            // Crear la vista previa
-            const routePreview = document.getElementById('routePreview');
-            routePreview.innerHTML = `
-                <h1>Ruta: Parque de la Gravera</h1>
-                <p><strong>Fecha:</strong> ${fecha}</p>
-                <p><strong>Hora de Salida:</strong> ${horaSalida}</p>
-                <p><strong>Hora de Llegada:</strong> ${horaLlegada}</p>
-                <p><strong>Punto de Quedada:</strong> ${puntoQuedada}</p>
-                <p><strong>Descripción de la Ruta:</strong> ${descripcionRuta}</p>
-                <p><strong>Nivel de Ruta:</strong> ${nivelRuta.charAt(0).toUpperCase() + nivelRuta.slice(1)}</p>
-            `;
+        // Actualizar la vista previa
+        document.getElementById('previewFecha').textContent = fecha;
+        document.getElementById('previewHoraSalida').textContent = horaSalida;
+        document.getElementById('previewHoraLlegada').textContent = horaLlegada;
+        document.getElementById('previewPuntoQuedada').textContent = puntoQuedada;
+        document.getElementById('previewDescripcionRuta').textContent = descripcionRuta;
 
-            // Ocultar el formulario y mostrar la vista previa
-            document.querySelector('.form-container').style.display = 'none';
-            document.querySelector('.preview-container').style.display = 'block';
+        // Mostrar solo el nivel de ruta seleccionado
+        document.querySelectorAll('.route-level div').forEach(function(div) {
+            div.style.display = 'none';
         });
-    </script>
+        document.querySelector(`.${nivelRuta}`).style.display = 'block';
+
+        // Ocultar el formulario y mostrar la vista previa
+        document.querySelector('.form-container').style.display = 'none';
+        document.querySelector('.preview-container').style.display = 'block';
+    });
+</script>
 </body>
 </html>
