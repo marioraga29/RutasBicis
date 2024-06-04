@@ -1,84 +1,151 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rutas Bicis</title>
-  <link href='style.css' rel='stylesheet'>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Ruta de Bici</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+      .container {
+          width: 80%;
+          max-width: 800px;
+          margin: 20px;
+      }
+      .form-container, .preview-container {
+          background-color: #fff;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          margin-top: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .form-container {
+          display: block;
+      }
+      .preview-container {
+          display: none;
+          color: #fff;
+          background-color: #000;
+          padding: 20px;
+          border-radius: 8px;
+          text-align: left;
+      }
+      .preview h1 {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+      .preview p {
+          margin: 5px 0;
+      }
+      .form-container label {
+          display: block;
+          margin: 10px 0 5px;
+      }
+      .form-container input, .form-container textarea, .form-container select {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+      }
+      .form-container button {
+          background-color: #0288d1;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+      .form-container button:hover {
+          background-color: #0277bd;
+      }
+      .route-details {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+      }
+      .route-details div {
+          width: 48%;
+      }
+      .route-level {
+          margin: 20px 0;
+      }
+      .route-level div {
+          height: 10px;
+          margin: 5px 0;
+      }
+      .route-level .experto { background-color: red; }
+      .route-level .avanzado { background-color: orange; }
+      .route-level .intermedio { background-color: yellow; }
+      .route-level .principiante { background-color: green; }
+      .route-level .paseo { background-color: blue; }
+  </style>
 </head>
+<body>
+    <div class="form-container">
+        <form id="routeForm">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required><br><br>
+            <label for="horaSalida">Hora de Salida:</label>
+            <input type="time" id="horaSalida" name="horaSalida" required><br><br>
+            <label for="horaLlegada">Hora de Llegada:</label>
+            <input type="time" id="horaLlegada" name="horaLlegada" required><br><br>
+            <label for="puntoQuedada">Punto de Quedada:</label>
+            <input type="text" id="puntoQuedada" name="puntoQuedada" required><br><br>
+            <label for="descripcionRuta">Descripción de la Ruta:</label>
+            <textarea id="descripcionRuta" name="descripcionRuta" required></textarea><br><br>
+            <label for="nivelRuta">Nivel de Ruta:</label>
+            <select id="nivelRuta" name="nivelRuta" required>
+                <option value="experto">Experto</option>
+                <option value="avanzado">Avanzado</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="principiante">Principiante</option>
+                <option value="paseo">Paseo</option>
+            </select><br><br>
+            <button type="submit">Crear Ruta</button>
+        </form>
+    </div>
 
-<body class="dark">
-  <div class="container my-4">
-    <form>
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4 text-center" id="firstdiv">
-          <div class="form-group">
-            <label for="typeOfActivity" id="title">Elija una opción</label>
-            <select class="form-control" id="typeOfActivity">
-              <option>RUTA</option>
-              <option>CICLO</option>
-              <option>CUMPLEAÑOS</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="name" placeholder="Nombre de la ruta">
-          </div>
-        </div>
-        <div class="col-md-4"></div>
-      </div>
-      <div class="row">
-        <div class="col-md text-center">
-          <div class="form-group">
-            <label for="date" id="title">Fecha</label>
-            <input type="date" class="form-control" id="date" >
-          </div>
-        </div>
-        <div class="col-md text-center">
-          <div class="form-group">
-            <label for="departureTime" id="title">Hora de salida</label>
-            <input type="time" class="form-control" id="departureTime" placeholder="Elije una hora">
-          </div>
-        </div>
-        <div class="col-md text-center">
-          <div class="form-group">
-            <label for="arrivalTime" id="title">Hora de llegada</label>
-            <input type="time" class="form-control" id="arrivalTime" placeholder="Elije una hora">
-          </div>
-        </div>
-        <div class="col-md text-center">
-          <div class="form-group">
-            <label for="departurePlace" id="title">Punto de quedada</label>
-            <input type="text" class="form-control" id="departurePlace" placeholder="Indicar...">
-          </div>
-        </div>
-      </div>
+    <div class="preview-container">
+        <div class="preview" id="routePreview"></div>
+    </div>
 
-      <div class="row">
-        <div class="col-md text-center">
-          <div class="form-group">
-            <label for="velocidad" id="title">Vel.Media(km/h)</label>
-            <input type="number" class="form-control" id="velocidad" placeholder="Indicar">
-          </div>
-        </div>
-        <div class="col-md text-center">
-          <div class="form-group">
-            <label for="km" id="title">Kilometros</label>
-            <input type="number" class="form-control" id="km" placeholder="Indicar">
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
+    <script>
+        document.getElementById('routeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Obtener los valores del formulario
+            const fecha = document.getElementById('fecha').value;
+            const horaSalida = document.getElementById('horaSalida').value;
+            const horaLlegada = document.getElementById('horaLlegada').value;
+            const puntoQuedada = document.getElementById('puntoQuedada').value;
+            const descripcionRuta = document.getElementById('descripcionRuta').value;
+            const nivelRuta = document.getElementById('nivelRuta').value;
+
+            // Crear la vista previa
+            const routePreview = document.getElementById('routePreview');
+            routePreview.innerHTML = `
+                <h1>Ruta: Parque de la Gravera</h1>
+                <p><strong>Fecha:</strong> ${fecha}</p>
+                <p><strong>Hora de Salida:</strong> ${horaSalida}</p>
+                <p><strong>Hora de Llegada:</strong> ${horaLlegada}</p>
+                <p><strong>Punto de Quedada:</strong> ${puntoQuedada}</p>
+                <p><strong>Descripción de la Ruta:</strong> ${descripcionRuta}</p>
+                <p><strong>Nivel de Ruta:</strong> ${nivelRuta.charAt(0).toUpperCase() + nivelRuta.slice(1)}</p>
+            `;
+
+            // Ocultar el formulario y mostrar la vista previa
+            document.querySelector('.form-container').style.display = 'none';
+            document.querySelector('.preview-container').style.display = 'block';
+        });
+    </script>
 </body>
-
 </html>
